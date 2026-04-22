@@ -39,15 +39,25 @@ export default function Solution() {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              whileHover={{ 
+                y: -12, 
+                scale: 1.02,
+                boxShadow: "0 20px 40px -12px rgba(15, 23, 42, 0.12)"
+              }}
+              transition={{ 
+                type: "spring",
+                stiffness: 300,
+                damping: 20,
+                delay: i * 0.1 
+              }}
               viewport={{ once: true }}
-              className="flex flex-col h-full"
+              className="flex flex-col h-full bg-white p-8 rounded-[32px] border border-slate-100 transition-colors hover:border-accent/20"
             >
               <div className="w-16 h-16 bg-accent rounded-3xl flex items-center justify-center mb-8 shadow-xl shadow-accent/20">
                 <item.icon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-brand-900 mb-4">{item.title}</h3>
-              <p className="text-brand-600 mb-8 text-lg">{item.desc}</p>
+              <p className="text-brand-600 mb-8 text-lg leading-relaxed">{item.desc}</p>
               <ul className="space-y-4 mt-auto">
                 {item.features.map((f, idx) => (
                   <li key={idx} className="flex items-center gap-3 text-brand-700 font-medium italic">
@@ -66,7 +76,10 @@ export default function Solution() {
                 <h4 className="text-2xl font-bold mb-2">Gestión Mensual Integral</h4>
                 <p className="text-brand-600">Tu equipo administrativo externo mes a mes.</p>
              </div>
-             <button className="bg-brand-900 text-white px-6 py-3 rounded-full font-bold hover:bg-black transition-all">
+             <button 
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-brand-900 text-white px-6 py-3 rounded-full font-bold hover:bg-black transition-all cursor-pointer"
+             >
                 Quiero contratar un plan
              </button>
           </div>
@@ -75,7 +88,10 @@ export default function Solution() {
                 <h4 className="text-2xl font-bold mb-2">Consultoría Especializada</h4>
                 <p className="text-brand-600">Impulsos estratégicos puntuales paraExpansion.</p>
              </div>
-             <button className="bg-accent text-white px-6 py-3 rounded-full font-bold hover:hover:bg-accent-hover transition-all">
+             <button 
+                onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-accent text-white px-6 py-3 rounded-full font-bold hover:hover:bg-accent-hover transition-all cursor-pointer"
+             >
                 Necesito una consultoría
              </button>
           </div>

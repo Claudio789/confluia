@@ -28,11 +28,17 @@ export default function Hero() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-hover transition-all flex items-center justify-center gap-2 shadow-xl shadow-accent/20 group">
+            <button 
+              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-accent text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-accent-hover transition-all flex items-center justify-center gap-2 shadow-xl shadow-accent/20 group cursor-pointer"
+            >
               Solicitar Presupuesto
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="bg-white text-brand-900 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg hover:border-accent hover:text-accent transition-all">
+            <button 
+              onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-white text-brand-900 border border-slate-200 px-8 py-4 rounded-full font-bold text-lg hover:border-accent hover:text-accent transition-all cursor-pointer"
+            >
               Ver Planes de Gestión
             </button>
           </div>
